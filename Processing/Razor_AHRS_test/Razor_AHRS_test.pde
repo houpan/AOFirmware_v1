@@ -21,6 +21,22 @@
 
 import processing.opengl.*;
 import processing.serial.*;
+import oscP5.*;
+import netP5.*;
+
+
+///Data trasmission part
+OscP5 oscP5;
+NetAddress myBroadcastLocation; 
+
+
+void oscEvent(OscMessage theOscMessage) {
+  /* get and print the address pattern and the typetag of the received OscMessage */
+  println("### received an osc message with addrpattern "+theOscMessage.addrPattern()+" and typetag "+theOscMessage.typetag());
+  theOscMessage.print();
+}
+
+//////////////////////////////
 
 // IF THE SKETCH CRASHES OR HANGS ON STARTUP, MAKE SURE YOU ARE USING THE RIGHT SERIAL PORT:
 // 1. Have a look at the Processing console output of this sketch.
@@ -133,6 +149,11 @@ void setup() {
   println("HAVE A LOOK AT THE LIST ABOVE AND SET THE RIGHT SERIAL PORT NUMBER IN THE CODE!");
   println("  -> Using port " + SERIAL_PORT_NUM + ": " + portName);
   serial = new Serial(this, portName, SERIAL_PORT_BAUD_RATE);
+  
+  oscP5 = new OscP5(this,12000);
+  myBroadcastLocation = new NetAddress("127.0.0.1",8000);
+  
+  
 }
 
 void setupRazor() {
@@ -206,6 +227,15 @@ void draw() {
   text("Pitch: " + ((int) pitch), 150, 0);
   text("Roll: " + ((int) roll), 300, 0);
   popMatrix();
+  
+  
+  OscMessage myOscMessage = new OscMessage("/YPRValue");  
+  myOscMessage.add(yaw - yawOffset);
+  myOscMessage.add(pitch);
+  myOscMessage.add(roll);
+  
+  oscP5.send(myOscMessage, myBroadcastLocation);
+  
 }
 
 void keyPressed() {
