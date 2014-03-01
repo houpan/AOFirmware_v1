@@ -1,4 +1,4 @@
-/***************************************************************************************************************
+   /***************************************************************************************************************
 * Razor AHRS Firmware v1.4.2
 * 9 Degree of Measurement Attitude and Heading Reference System
 * for Sparkfun "9DOF Razor IMU" (SEN-10125 and SEN-10736)
@@ -167,7 +167,8 @@
 // OUTPUT OPTIONS
 /*****************************************************************/
 // Set your serial port baud rate used to send out data here!
-#define OUTPUT__BAUD_RATE 57600
+//#define OUTPUT__BAUD_RATE 57600
+#define OUTPUT__BAUD_RATE 9600
 
 // Sensor data output interval in milliseconds
 // This may not work, if faster than 20ms (=50Hz)
@@ -204,7 +205,7 @@ boolean output_errors = false;  // true or false
 // It is not necessary to set this! It just makes life easier when writing code for
 // the receiving side. The Processing test sketch also works without setting this.
 // NOTE: When using this, OUTPUT__STARTUP_STREAM_ON has no effect!
-#define OUTPUT__HAS_RN_BLUETOOTH false  // true or false
+#define OUTPUT__HAS_RN_BLUETOOTH true  // true or false
 
 
 // SENSOR CALIBRATION
@@ -213,36 +214,36 @@ boolean output_errors = false;  // true or false
 // Put MIN/MAX and OFFSET readings for your board here!
 // Accelerometer
 // "accel x,y,z (min/max) = X_MIN/X_MAX  Y_MIN/Y_MAX  Z_MIN/Z_MAX"
-#define ACCEL_X_MIN ((float) -265.00)
-#define ACCEL_X_MAX ((float) 249.00)
-#define ACCEL_Y_MIN ((float) -261.00)
-#define ACCEL_Y_MAX ((float) 272.00)
-#define ACCEL_Z_MIN ((float) -263.00)
-#define ACCEL_Z_MAX ((float) 243.00)
+#define ACCEL_X_MIN ((float) -267.00)
+#define ACCEL_X_MAX ((float) 254.00)
+#define ACCEL_Y_MIN ((float) -246.00)
+#define ACCEL_Y_MAX ((float) 266.00)
+#define ACCEL_Z_MIN ((float) -292.00)
+#define ACCEL_Z_MAX ((float) 220.00)
 
 // Magnetometer (standard calibration mode)
 // "magn x,y,z (min/max) = X_MIN/X_MAX  Y_MIN/Y_MAX  Z_MIN/Z_MAX"
 
-#define MAGN_X_MIN ((float) -410.00)
-#define MAGN_X_MAX ((float) 692.00)
-#define MAGN_Y_MIN ((float) -404.00)
-#define MAGN_Y_MAX ((float) 659.00)
-#define MAGN_Z_MIN ((float) -152.00)
-#define MAGN_Z_MAX ((float) 903.00)
+#define MAGN_X_MIN ((float) -443.00)
+#define MAGN_X_MAX ((float) 622.00)
+#define MAGN_Y_MIN ((float) -409.00)
+#define MAGN_Y_MAX ((float) 644.00)
+#define MAGN_Z_MIN ((float) -506.00)
+#define MAGN_Z_MAX ((float) 469.00)
 
 
 
 // Magnetometer (extended calibration mode)
 // Uncommend to use extended magnetometer calibration (compensates hard & soft iron errors)
-//#define CALIBRATION__MAGN_USE_EXTENDED true
-//const float magn_ellipsoid_center[3] = {0, 0, 0};
-//const float magn_ellipsoid_transform[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+#define CALIBRATION__MAGN_USE_EXTENDED true
+const float magn_ellipsoid_center[3] = {191.687, 141.159, 37.5206};
+const float magn_ellipsoid_transform[3][3] = {{0.920425, -0.00490679, -0.0229473}, {-0.00490679, 0.948333, 0.00359893}, {-0.0229473, 0.00359893, 0.992893}};
 
 // Gyroscope
 // "gyro x,y,z (current/average) = .../OFFSET_X  .../OFFSET_Y  .../OFFSET_Z
-#define GYRO_AVERAGE_OFFSET_X ((float) 58.67)
-#define GYRO_AVERAGE_OFFSET_Y ((float) 103.05)
-#define GYRO_AVERAGE_OFFSET_Z ((float) -9.18)
+#define GYRO_AVERAGE_OFFSET_X ((float) 33.73)
+#define GYRO_AVERAGE_OFFSET_Y ((float) 31.42)
+#define GYRO_AVERAGE_OFFSET_Z ((float) -3.59)
 
 /*
 // Calibration example:
@@ -268,10 +269,7 @@ boolean output_errors = false;  // true or false
 const float magn_ellipsoid_center[3] = {91.5, -13.5, -48.1};
 const float magn_ellipsoid_transform[3][3] = {{0.902, -0.00354, 0.000636}, {-0.00354, 0.9, -0.00599}, {0.000636, -0.00599, 1}};
 
-// Extended magn (with Sennheiser HD 485 headphones)
-//#define CALIBRATION__MAGN_USE_EXTENDED true
-//const float magn_ellipsoid_center[3] = {72.3360, 23.0954, 53.6261};
-//const float magn_ellipsoid_transform[3][3] = {{0.879685, 0.000540833, -0.0106054}, {0.000540833, 0.891086, -0.0130338}, {-0.0106054, -0.0130338, 0.997494}};
+
 
 //"gyro x,y,z (current/average) = -40.00/-42.05  98.00/96.20  -18.00/-18.36"
 #define GYRO_AVERAGE_OFFSET_X ((float) -42.05)

@@ -42,11 +42,12 @@ void oscEvent(OscMessage theOscMessage) {
 // 1. Have a look at the Processing console output of this sketch.
 // 2. Look for the serial port list and find the port you need (it's the same as in Arduino).
 // 3. Set your port number here:
-final static int SERIAL_PORT_NUM = 9;
+final static int SERIAL_PORT_NUM = 5;
 // 4. Try again.
 
 
-final static int SERIAL_PORT_BAUD_RATE = 57600;
+//final static int SERIAL_PORT_BAUD_RATE = 57600;
+final static int SERIAL_PORT_BAUD_RATE = 9600;
 
 float yaw = 0.0f;
 float pitch = 0.0f;
