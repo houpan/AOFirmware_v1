@@ -224,20 +224,21 @@ boolean output_errors = false;  // true or false
 // Magnetometer (standard calibration mode)
 // "magn x,y,z (min/max) = X_MIN/X_MAX  Y_MIN/Y_MAX  Z_MIN/Z_MAX"
 
-#define MAGN_X_MIN ((float) -443.00)
-#define MAGN_X_MAX ((float) 622.00)
-#define MAGN_Y_MIN ((float) -409.00)
-#define MAGN_Y_MAX ((float) 644.00)
-#define MAGN_Z_MIN ((float) -506.00)
-#define MAGN_Z_MAX ((float) 469.00)
+#define MAGN_X_MIN ((float) -785.00)
+#define MAGN_X_MAX ((float) 274.00)
+#define MAGN_Y_MIN ((float) -579.00)
+#define MAGN_Y_MAX ((float) 587.00)
+#define MAGN_Z_MIN ((float) -236.00)
+#define MAGN_Z_MAX ((float) 900.00)
 
 
 
 // Magnetometer (extended calibration mode)
 // Uncommend to use extended magnetometer calibration (compensates hard & soft iron errors)
+
 #define CALIBRATION__MAGN_USE_EXTENDED true
-const float magn_ellipsoid_center[3] = {191.687, 141.159, 37.5206};
-const float magn_ellipsoid_transform[3][3] = {{0.920425, -0.00490679, -0.0229473}, {-0.00490679, 0.948333, 0.00359893}, {-0.0229473, 0.00359893, 0.992893}};
+const float magn_ellipsoid_center[3] = {-197.309, 64.8316, 312.885};
+const float magn_ellipsoid_transform[3][3] = {{0.926632, -0.00349641, -0.00166708}, {-0.00349641, 0.956959, 0.00354344}, {-0.00166708, 0.00354344, 0.999656}};
 
 // Gyroscope
 // "gyro x,y,z (current/average) = .../OFFSET_X  .../OFFSET_Y  .../OFFSET_Z
@@ -266,9 +267,8 @@ const float magn_ellipsoid_transform[3][3] = {{0.920425, -0.00490679, -0.0229473
 
 // Extended magn
 #define CALIBRATION__MAGN_USE_EXTENDED true
-const float magn_ellipsoid_center[3] = {91.5, -13.5, -48.1};
-const float magn_ellipsoid_transform[3][3] = {{0.902, -0.00354, 0.000636}, {-0.00354, 0.9, -0.00599}, {0.000636, -0.00599, 1}};
-
+const float magn_ellipsoid_center[3] = {-297.003, 14.3160, 472.075};
+const float magn_ellipsoid_transform[3][3] = {{0.939367, 0.00943284, -0.0471345}, {0.00943284, 0.900658, -0.0129522}, {-0.0471345, -0.0129522, 0.959155}};
 
 
 //"gyro x,y,z (current/average) = -40.00/-42.05  98.00/96.20  -18.00/-18.36"
