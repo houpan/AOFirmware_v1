@@ -1,4 +1,4 @@
-  /******************************************************************************************
+ /******************************************************************************************
 * Test Sketch for Razor AHRS v1.4.2
 * 9 Degree of Measurement Attitude and Heading Reference System
 * for Sparkfun "9DOF Razor IMU" and "9DOF Sensor Stick"
@@ -10,9 +10,9 @@
 *
 * Infos, updates, bug reports, contributions and feedback:
 *     https://github.com/ptrbrtz/razor-9dof-ahrs
-******************************************************************************************/
+******************************aa************************************************************/
 
-/*
+/*  
   NOTE: There seems to be a bug with the serial library in Processing versions 1.5
   and 1.5.1: "WARNING: RXTX Version mismatch ...".
   Processing 2.0.x seems to work just fine. Later versions may too.

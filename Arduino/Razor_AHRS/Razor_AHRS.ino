@@ -205,7 +205,7 @@ boolean output_errors = false;  // true or false
 // It is not necessary to set this! It just makes life easier when writing code for
 // the receiving side. The Processing test sketch also works without setting this.
 // NOTE: When using this, OUTPUT__STARTUP_STREAM_ON has no effect!
-#define OUTPUT__HAS_RN_BLUETOOTH true  // true or false
+#define OUTPUT__HAS_RN_BLUETOOTH true// true or false
 
 
 // SENSOR CALIBRATION
@@ -236,9 +236,13 @@ boolean output_errors = false;  // true or false
 // Magnetometer (extended calibration mode)
 // Uncommend to use extended magnetometer calibration (compensates hard & soft iron errors)
 
+
 #define CALIBRATION__MAGN_USE_EXTENDED true
-const float magn_ellipsoid_center[3] = {-15.0325, 131.407, -3.79748};
-const float magn_ellipsoid_transform[3][3] = {{0.913396, -0.0160578, 0.00337379}, {-0.0160578, 0.969932, 0.00293798}, {0.00337379, 0.00293798, 0.999671}};
+const float magn_ellipsoid_center[3] = {63.7785, 123.476, 57.1393};
+const float magn_ellipsoid_transform[3][3] = {{0.920506, 0.000242277, -0.00335780}, {0.000242277, 0.973377, 0.00769314}, {-0.00335780, 0.00769314, 0.997641}};
+
+
+
 // Gyroscope
 // "gyro x,y,z (current/average) = .../OFFSET_X  .../OFFSET_Y  .../OFFSET_Z
 #define GYRO_AVERAGE_OFFSET_X ((float) 33.73)
